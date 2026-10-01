@@ -32,7 +32,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Escenario 1920x1080 escalado a la ventana */
   .viewport { position: fixed; inset: 0; overflow: hidden; }
   .stage {
     position: absolute; left: 50%; top: 50%;
@@ -50,7 +49,6 @@
   .slide.before { transform: translateX(-80px); }
   .slide.active { opacity: 1; visibility: visible; transform: none; }
 
-  /* Entrada escalonada de cada elemento */
   .slide .a { opacity: 0; transform: translateY(34px); }
   .slide.active .a { animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--d, 0) * 140ms + 200ms); }
   .slide.active .a.pop { animation-name: pop; }
@@ -59,25 +57,20 @@
   @keyframes pop { 0% { opacity: 0; transform: scale(.7); } 70% { opacity: 1; transform: scale(1.06); } 100% { opacity: 1; transform: none; } }
   @keyframes fromleft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: none; } }
 
-  /* Subrayado que se dibuja */
   .mark { background: linear-gradient(var(--orange), var(--orange)) no-repeat 0 92% / 0% 10px; transition: background-size 1s cubic-bezier(.2,.7,.2,1) 1.2s; }
   .slide.active .mark { background-size: 100% 10px; }
 
-  /* Barra de la cita que crece */
   .pull { position: relative; border-left: 0 !important; }
   .pull::before { content: ""; position: absolute; left: 0; top: 0; width: 6px; height: 0; background: #b5562a; transition: height .8s ease 1s; }
   .slide.active .pull::before { height: 100%; }
 
-  /* Frase final con brillo */
   .shine { background: linear-gradient(100deg, var(--orange) 40%, #ffe2c7 50%, var(--orange) 60%) 0 0 / 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent !important; }
   .slide.active .shine { animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards, shine 3.5s ease-in-out 1.8s infinite; animation-delay: calc(var(--d, 0) * 140ms + 200ms), 1.8s; }
   @keyframes shine { from { background-position: 100% 0; } to { background-position: 0 0; } }
 
-  /* Tarjetas con leve elevación */
   .card, .policy { transition: transform .3s ease, box-shadow .3s ease; }
   .card:hover, .policy:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(31,42,55,.12); }
 
-  /* Barritas de puntaje */
   .meter { height: 14px; border-radius: 999px; background: rgba(255,255,255,.18); overflow: hidden; margin-top: 6px; }
   .card:not(.blue) .meter { background: #ece7dd; }
   .meter i { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--orange); transition: width 1.2s cubic-bezier(.2,.7,.2,1) 1s; }
@@ -117,7 +110,6 @@
   .pills { display: flex; gap: 24px; flex-wrap: wrap; }
   .pill { font-size: 34px; font-weight: 600; background: #2f4256; padding: 20px 38px; border-radius: 999px; }
 
-  /* Controles */
   .ui {
     position: fixed; left: 0; right: 0; bottom: 0;
     display: flex; align-items: center; justify-content: space-between;
@@ -147,7 +139,6 @@
 <div class="viewport">
   <main class="stage" id="stage">
 
-    <!-- 1. Pregunta -->
     <section class="slide dark active" aria-label="Diapositiva 1">
       <p class="kicker a" style="--d:0">Políticas TIC y prácticas reales</p>
       <div style="display:flex;flex-direction:column;gap:44px">
@@ -160,7 +151,6 @@
       <p class="a" style="--d:5;font-size:28px;color:#c9c4b8">De la conectividad a la apropiación</p>
     </section>
 
-    <!-- 2. Datos -->
     <section class="slide light" aria-label="Diapositiva 2">
       <h2 class="a" style="--d:0">Mismo acceso, distinta <span class="mark">apropiación</span></h2>
       <div class="row">
@@ -190,7 +180,6 @@
       <p class="source a" style="--d:5">Fuente: encuestas a 13 docentes y 10 estudiantes de escuelas secundarias públicas (2026).</p>
     </section>
 
-    <!-- 3. Política -->
     <section class="slide sand" aria-label="Diapositiva 3">
       <h2 class="a" style="--d:0">La política ya lo prevé, pero <span class="mark">no llega al aula</span></h2>
       <div class="row">
@@ -205,7 +194,6 @@
       <p class="a" style="--d:7;font-size:28px;color:#3d4752">Soletic y Kelly (2022): la capacitación en TIC fue casi siempre voluntaria.</p>
     </section>
 
-    <!-- 4. Matemática y cierre -->
     <section class="slide dark" aria-label="Diapositiva 4">
       <div style="display:flex;flex-direction:column;gap:44px">
         <h2 class="a" style="--d:0">En Matemática: cambiar <span class="mark">qué enseñamos y evaluamos</span></h2>
